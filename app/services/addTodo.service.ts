@@ -1,4 +1,5 @@
 import { Context, ServiceSchema } from "moleculer";
+import { Todo } from "../model/Todo";
 
 const TodoService: ServiceSchema = {
     name: 'todos',
@@ -9,7 +10,9 @@ const TodoService: ServiceSchema = {
             if(!text) {
                 throw Error('Todo is required')
             }
-            return text
+
+            const newTodo = new Todo(text)
+            return newTodo
         }
     }
 }

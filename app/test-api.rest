@@ -1,0 +1,7 @@
+# POST request för att lägga till en ny To-Do
+POST http://localhost:3000/api/addTodos
+Content-Type: application/json
+
+{
+  "text": "Add Todo"
+}

@@ -1,11 +1,12 @@
-import broker from "../moleculer.config"
+import { Context, ServiceBroker } from "moleculer"
 
 describe('Testing Add Todo Service', () => {
 
+    const broker = new ServiceBroker()
     broker.createService({
         name: 'todos',
         actions: {
-            add(ctx: {params: {text: string}}) {
+            add(ctx: Context<{text: string}>) {
                 const{text} = ctx.params
 
                 if(!text) {
@@ -24,7 +25,7 @@ describe('Testing Add Todo Service', () => {
         expect(AddTodo).toBe('Learning Jest');
     })
 
-    it('Should fail if no text is added', async() => {
+    it('Should Fail If No Text Is Added', async() => {
         await expect(broker.call('todos.add', {})).rejects.toThrow('Todo Text is required!');
     })
 })

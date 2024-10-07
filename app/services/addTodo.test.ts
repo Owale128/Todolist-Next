@@ -21,8 +21,8 @@ describe('Testing Add Todo Service', () => {
     afterAll(() => broker.stop())
 
     it('Should Add Todo Text', async () => {
-        const AddTodo = await broker.call('todos.add', {text: 'Learning Jest'});
-        expect(AddTodo).toBe('Learning Jest');
+        const addTodo = await broker.call('todos.add', {text: 'Learning Jest'});
+        expect(addTodo).toBe('Learning Jest');
     })
 
     it('Should Fail If No Text Is Added', async() => {

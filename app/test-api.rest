@@ -5,3 +5,6 @@ Content-Type: application/json
 {
   "text": "Add Todo"
 }
+
+### DELETE
+DELETE http://localhost:3000/api/removedTodos/1728315935156

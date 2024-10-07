@@ -5,19 +5,19 @@ export async function POST(req: NextRequest) {
     try {
 
         if(!broker.started) {
-            broker.start()
+           await broker.start()
         }
 
         const body = await req.json()
         const {text} = body
 
         if(!text) {
-            return NextResponse.json({error: 'Todo is required!'})
+            return NextResponse.json({error: 'Todo text is required!'}, {status: 400})
         }
 
         const result = await broker.call('todos.add', {text})
-        return NextResponse.json({result})
+        return NextResponse.json({result}, {status: 201})
     } catch (error) {
-        NextResponse.json(error)
+        NextResponse.json(error, {status: 500})
     }
 }

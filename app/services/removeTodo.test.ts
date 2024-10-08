@@ -1,27 +1,11 @@
-import { Context, ServiceBroker } from "moleculer"
+import {  ServiceBroker } from "moleculer"
 import { todos } from "../utils/todoUtils";
+import RemoveTodoService from "./removeTodo.service";
 
-describe('Remove Todo Service', () => {
+describe('A service to remove todo', () => {
     const broker = new ServiceBroker()
 
-    broker.createService({
-        name:'todos',
-        actions: {
-            remove(ctx: Context<{id: number}>) {
-                const {id} = ctx.params;
-
-                const removeTodo = todos.find(todo => todo.id === id);
-                if(!removeTodo) {
-                    throw Error('Todo not found')
-                }
-                const updatedTodos = todos.filter(todo => todo.id !== id)
-                todos.length = 0
-                todos.push(...updatedTodos)
-
-                return removeTodo
-            }
-        }
-    })
+    broker.createService(RemoveTodoService)
 
     beforeEach(() => {
     todos.push({ id: 1, text: 'Learning Moleculer', done: false });
@@ -36,24 +20,29 @@ describe('Remove Todo Service', () => {
     beforeAll(() => broker.start())
     afterAll(() => broker.stop())
 
-    it('Should remove a todo by ID', async () => {
-
-        expect(todos).toHaveLength(3);
-
-        const todoToRemove = todos[1];
-        const removedTodo = await broker.call('todos.remove', {id: todoToRemove.id})
-
-        expect(removedTodo).toHaveProperty('id', todoToRemove.id);
-        expect(removedTodo).toHaveProperty('text', 'Building a Todo App')
-
-        expect(todos).toHaveLength(2)
-        expect(todos[0].text).toBe('Learning Moleculer')
-
+    describe('When clicking on remove',() => {
+        it('Should remove a todo by ID', async () => {
+            
+            expect(todos).toHaveLength(3);
+            
+            const todoToRemove = todos[1];
+            const updatedTodos = await broker.call('todos.remove', {id: todoToRemove.id})
+            
+            expect(updatedTodos).toHaveLength(2)
+            expect(todos).toHaveLength(2)
+            expect(todos.some(todo => todo.id === todoToRemove.id)).toBe(false)
+            
+            expect(todos[0].text).toBe('Learning Moleculer')
+            expect(todos[1].text).toBe('I Love Coding')
+            
+        })
     })
-
-    it('Should throw an error when trying to remove todo with non-existent ID', async () => {
-        expect(todos).toHaveLength(3)
-        
-        await expect(broker.call('todos.remove', {id: 999})).rejects.toThrow('Todo not found')
-    } )
+    
+    describe('when trying to remove todo with non-existent ID ', () => {
+        it('Should throw an error', async () => {
+            expect(todos).toHaveLength(3)
+            
+            await expect(broker.call('todos.remove', {id: 999})).rejects.toThrow('Todo not found')
+        } )
+    })
 })

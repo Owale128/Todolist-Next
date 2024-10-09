@@ -8,7 +8,7 @@ const addTodoService: ServiceSchema = {
         add(ctx: Context<{text: string}>) {
             const {text} = ctx.params
 
-            if(!text) {
+            if(!text) {
                 throw Error('Todo text is required!')
             }
 

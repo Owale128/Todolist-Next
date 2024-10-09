@@ -2,7 +2,7 @@ import { Context, ServiceSchema } from "moleculer";
 import { todos } from "../utils/todoUtils";
 
 
-const toggleTodo: ServiceSchema = {
+const toggleTodoService: ServiceSchema = {
     name: 'toggle',
     actions: {
         todo(ctx: Context<{id: number}>) {
@@ -19,4 +19,4 @@ const toggleTodo: ServiceSchema = {
     }
 }
 
-export default toggleTodo
+export default toggleTodoService

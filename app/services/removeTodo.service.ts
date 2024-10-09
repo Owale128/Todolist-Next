@@ -2,10 +2,10 @@ import { Context, ServiceSchema } from "moleculer";
 import { todos } from "../utils/todoUtils";
 
 
-const RemoveTodoService: ServiceSchema = {
-    name: 'todos',
+const removeTodoService: ServiceSchema = {
+    name: 'remove',
     actions: {
-        remove(ctx: Context<{id: number}>) {
+        todo(ctx: Context<{id: number}>) {
             const{id} = ctx.params;
 
             const updatedTodos = todos.filter(todo => todo.id !== id)
@@ -14,7 +14,6 @@ const RemoveTodoService: ServiceSchema = {
                 throw Error('Todo not found')
             }
 
-            todos.length = 0;
             todos.push(...updatedTodos)
 
             return updatedTodos
@@ -22,4 +21,4 @@ const RemoveTodoService: ServiceSchema = {
     }
 }
 
-export default RemoveTodoService
+export default removeTodoService

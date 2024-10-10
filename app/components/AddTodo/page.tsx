@@ -9,6 +9,10 @@ const AddTodo = () => {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
+        if(userInput.trim() !== ''){
+            return
+        }
+
         dispatch({
             type: ActionType.ADDED,
             payload: userInput
@@ -18,7 +22,7 @@ const AddTodo = () => {
   return (
     <form onSubmit={handleSubmit}>
         <input
-        className='border-2 border-black p-1 text-2xl' 
+        className='border-2 border-black text-2xl text-center' 
         type="text"
         value={(userInput)}
         onChange={(e) => setUserInput(e.target.value)}

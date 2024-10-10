@@ -9,7 +9,7 @@ const AddTodo = () => {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
-        if(userInput.trim() !== ''){
+        if(userInput.trim() == ''){
             return
         }
 

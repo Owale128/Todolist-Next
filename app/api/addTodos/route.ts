@@ -3,12 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {
-
-        if(!broker.started) {
-            console.log('Starting broker...')
-           await broker.start()
-        }
-
         const body = await req.json()
         const {text} = body
 
@@ -17,7 +11,8 @@ export async function POST(req: NextRequest) {
         }
 
         const result = await broker.call('todos.add', {text})
-        return NextResponse.json(result, {status: 201})
+        
+        return NextResponse.json(result, {status: 200})
     } catch (error) {
         NextResponse.json(error, {status: 500})
     }

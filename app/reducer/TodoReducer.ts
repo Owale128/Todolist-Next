@@ -1,0 +1,33 @@
+import { Todo } from "../model/Todo";
+
+export interface IAction {
+    type: ActionType;
+    payload: string;
+}
+
+export enum ActionType {
+    ADDED,
+    REMOVED,
+    TOGGLED
+}
+
+export const TodoReducer = (todos: Todo[], action: IAction): Todo[] => {
+    switch(action.type) {
+        case ActionType.ADDED: {
+            const newValue: Todo[] = [...todos, new Todo (action.payload)]
+            return newValue
+        }
+
+        case ActionType.REMOVED:
+            return todos.filter((todo) => todo.id !== +action.payload)
+
+            case ActionType.TOGGLED:
+                return todos.map((todo) => {
+                    if (todo.id === +action.payload) return {...todo, done: !todo.done}
+                    return todo
+                })
+
+                default:
+                    return todos
+    }
+}

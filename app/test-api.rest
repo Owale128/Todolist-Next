@@ -1,5 +1,5 @@
 ### POST request to add todo
-POST http://localhost:3003/api/addTodos
+POST http://localhost:3000/api/addTodos
 Content-Type: application/json
 
 { 
@@ -7,14 +7,14 @@ Content-Type: application/json
 }
 
 ### GET request to List all todos
-GET http://localhost:3003/api/listTodos
+GET http://localhost:3000/api/listTodos
 Content-Type: application/json
 
 ### PUT to toggle todo
-PUT http://localhost:3003/api/toggleTodo?id=1728504285144
+PUT http://localhost:3000/api/toggleTodo?id=1728558765712
 Content-Type: application/json
 
 
 ### DELETE to delete todo
-DELETE http://localhost:3003/api/removedTodos?id=1728504285144
+DELETE http://localhost:3000/api/removedTodos?id=1728558765712
 Content-Type: application/json

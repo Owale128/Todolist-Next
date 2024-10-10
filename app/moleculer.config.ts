@@ -9,4 +9,6 @@ broker.createService(addTodoService)
 broker.createService(toggleTodoService)
 broker.createService(removeTodoService)
 
+broker.start()
+
 export default broker

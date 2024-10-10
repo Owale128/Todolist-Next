@@ -7,7 +7,7 @@ export default function Home() {
 
   const goToTodolist = (e: FormEvent) => {
     e.preventDefault()
-    router.push('/Todolist')
+    router.push('/components/TodoApp')
   }
 
   return (

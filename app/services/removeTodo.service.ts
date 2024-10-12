@@ -13,10 +13,11 @@ const removeTodoService: ServiceSchema = {
             if(updatedTodos.length === todos.length) {
                 throw Error('Todo not found')
             }
-
+            
+            todos.length = 0
             todos.push(...updatedTodos)
 
-            return updatedTodos
+            return {id}
         }
     }
 }

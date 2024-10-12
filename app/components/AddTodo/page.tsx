@@ -1,23 +1,34 @@
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType } from '@/app/reducer/TodoReducer'
+import axios from 'axios'
 import React, { FormEvent, useContext, useState } from 'react'
 
 const AddTodo = () => {
     const{ dispatch } = useContext(TodosAllContext)
     const [userInput, setUserInput] = useState('')
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
 
         if(userInput.trim() == ''){
             return
         }
 
-        dispatch({
-            type: ActionType.ADDED,
-            payload: userInput
-        })
-        setUserInput('')
+        try {
+            const response = await axios.post('/api/addTodos', {
+                text: userInput,
+            })
+
+            const newTodo = response.data;
+
+            dispatch({
+                type: ActionType.ADDED,
+                payload: newTodo
+            })
+            setUserInput('')
+        } catch (error) {
+            console.error('Error adding todo', error)
+        }
     }
   return (
     <form onSubmit={handleSubmit}>

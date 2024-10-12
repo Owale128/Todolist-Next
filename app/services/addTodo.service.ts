@@ -3,9 +3,9 @@ import { Todo } from "../model/Todo";
 import { todos } from "../utils/todoUtils";
 
 const addTodoService: ServiceSchema = {
-    name: 'todos',
+    name: 'add',
     actions: {
-        add(ctx: Context<{text: string}>) {
+        todo(ctx: Context<{text: string}>) {
             const {text} = ctx.params
 
             if(!text) {
@@ -16,10 +16,6 @@ const addTodoService: ServiceSchema = {
             todos.push(newTodo)
             return newTodo
         },
-
-        list() {
-            return todos
-        }
     }
 }
 

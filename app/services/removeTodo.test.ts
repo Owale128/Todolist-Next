@@ -26,7 +26,7 @@ describe('A service to remove todo', () => {
             expect(todos).toHaveLength(3);
             
             const todoToRemove = todos[1];
-            const updatedTodos = await broker.call('todos.remove', {id: todoToRemove.id})
+            const updatedTodos = await broker.call('remove.todo', {id: todoToRemove.id})
             
             expect(updatedTodos).toHaveLength(2)
             expect(todos).toHaveLength(2)
@@ -42,7 +42,7 @@ describe('A service to remove todo', () => {
         it('Should throw an error', async () => {
             expect(todos).toHaveLength(3)
             
-            await expect(broker.call('todos.remove', {id: 999})).rejects.toThrow('Todo not found')
+            await expect(broker.call('remove.todo', {id: 999})).rejects.toThrow('Todo not found')
         } )
     })
 })

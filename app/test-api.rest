@@ -11,10 +11,17 @@ GET http://localhost:3000/api/listTodos
 Content-Type: application/json
 
 ### PUT to toggle todo
-PUT http://localhost:3000/api/toggleTodo?id=1728558765712
+PUT http://localhost:3000/api/toggleTodo
 Content-Type: application/json
 
+{ 
+  "id": 1728740725103
+}
 
 ### DELETE to delete todo
-DELETE http://localhost:3000/api/removedTodos?id=1728558765712
+DELETE http://localhost:3000/api/removedTodos
 Content-Type: application/json
+
+{ 
+  "id": 1728740725103
+}

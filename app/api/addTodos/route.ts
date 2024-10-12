@@ -10,10 +10,12 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({error: 'Todo text is required!'}, {status: 400})
         }
 
-        const result = await broker.call('todos.add', {text})
+        const result = await broker.call('add.todo', {text})
         
         return NextResponse.json(result, {status: 200})
+
     } catch (error) {
+        
         NextResponse.json(error, {status: 500})
     }
 }

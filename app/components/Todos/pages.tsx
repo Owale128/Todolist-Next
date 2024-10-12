@@ -1,25 +1,37 @@
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType } from '@/app/reducer/TodoReducer'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import DisplayTodo from '../DisplayTodo/pages'
+import axios from 'axios'
 
 const Todos = () => {
 
     const { todos, dispatch } = useContext(TodosAllContext)
 
-    const removeTodo = (id: number) => {
-        dispatch({
-            type: ActionType.REMOVED,
-            payload: id.toString()
-        })
+    const removeTodo = async (id: number) => {
+        try {
+           const response =  await axios.delete('/api/removedTodos', {data: {id}})
+           const removedTodo = response.data
+            dispatch({
+                type: ActionType.REMOVED,
+                payload: removedTodo.id
+            })
+        }catch (error) {
+            console.error('Error removing todo', error)
+        }
     }
 
-    const toggleTodo = (id: number) => {
-
-        dispatch({
-            type: ActionType.TOGGLED,
-            payload: id.toString()
-        })
+    const toggleTodo = async (id: number) => {
+        try{
+            const response = await axios.put('/api/toggleTodo', {id})   
+            const toggledTodo = response.data
+            dispatch({
+                type: ActionType.TOGGLED,
+                payload: toggledTodo.id
+            })  
+        }catch (error) {
+            console.error('Error toggle todo', error)
+        }
     }
 
   return (

@@ -20,7 +20,7 @@ describe('Toggle todo status', () => {
 
     describe('When clicking on done', () => {
         it('Should toggle the done status of todo', async () => {
-            const newTodo = await broker.call('todos.add', { text: 'Learning Moleculer' }) as Todo
+            const newTodo = await broker.call('add.todo', { text: 'Learning Moleculer' }) as Todo
             expect(newTodo.done).toBe(false)
 
             const toggledTodo = await broker.call('toggle.todo', {id: newTodo.id}) as Todo

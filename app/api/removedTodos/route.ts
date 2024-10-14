@@ -10,7 +10,7 @@ export async function DELETE(req: NextRequest) {
             return NextResponse.json({error: 'ID is required'}, {status: 400})
         }
 
-        const removedTodo = await broker.call('remove.todo', {id: Number(id)})
+        const removedTodo = await broker.call('remove.todo', {id})
 
         return NextResponse.json(removedTodo, {status: 200})
     } catch (error) {  

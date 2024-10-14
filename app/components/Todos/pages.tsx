@@ -10,8 +10,8 @@ const Todos = () => {
 
     const removeTodo = async (id: number) => {
         try {
-           const response =  await axios.delete('/api/removedTodos', {data: {id}})
-           const removedTodo = response.data
+          const response = await axios.delete('/api/removedTodos', {data: {id}})
+          const removedTodo = response.data
             dispatch({
                 type: ActionType.REMOVED,
                 payload: removedTodo.id
@@ -23,12 +23,12 @@ const Todos = () => {
 
     const toggleTodo = async (id: number) => {
         try{
-            const response = await axios.put('/api/toggleTodo', {id})   
-            const toggledTodo = response.data
-            dispatch({
-                type: ActionType.TOGGLED,
-                payload: toggledTodo.id
-            })  
+          const response =  await axios.put('/api/toggleTodo', {id})
+          const toggledTodo = response.data
+                dispatch({
+                    type: ActionType.TOGGLED,
+                    payload: toggledTodo.id
+                })  
         }catch (error) {
             console.error('Error toggle todo', error)
         }

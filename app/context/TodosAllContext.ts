@@ -5,7 +5,7 @@ import { IAction } from "../reducer/TodoReducer";
 
 interface ITodosAllContext {
     todos: Todo[];
-    dispatch: Dispatch<IAction>;
+    dispatch: Dispatch<IAction<Todo>>;
 }
 
 export const TodosAllContext = createContext<ITodosAllContext> ({

@@ -5,17 +5,22 @@ import { todos } from "../utils/todoUtils";
 const toggleTodoService: ServiceSchema = {
     name: 'toggle',
     actions: {
-        todo(ctx: Context<{id: number}>) {
-            const { id } = ctx.params;
-            const todo = todos.find(todo => todo.id === id)
-
-            if(!todo) {
-                throw new Error ('Todo not found!')
+        todo: {
+            params: {
+                id: 'number'
+            },
+            handler(ctx: Context<{id: number}>) {
+                const { id } = ctx.params;
+                const todo = todos.find(todo => todo.id === id)
+                
+                if(!todo) {
+                    throw new Error ('Todo not found!')
+                }
+                
+                todo.done = !todo.done;
+                return todo;
             }
-
-            todo.done = !todo.done;
-            return todo;
-        }
+        } 
     }
 }
 

@@ -5,17 +5,22 @@ import { todos } from "../utils/todoUtils";
 const addTodoService: ServiceSchema = {
     name: 'add',
     actions: {
-        todo(ctx: Context<{text: string}>) {
-            const {text} = ctx.params
-
-            if(!text) {
-                throw Error('Todo text is required!')
-            }
-
-            const newTodo = new Todo(text)
-            todos.push(newTodo)
-            return newTodo
-        },
+        todo:{
+            params: {
+                text: 'string'
+            },
+            handler(ctx: Context<{text: string}>) {
+                const {text} = ctx.params
+                
+                if(!text) {
+                    throw Error('Todo text is required!')
+                }
+                
+                const newTodo = new Todo(text)
+                todos.push(newTodo)
+                return newTodo
+            },
+        }
     }
 }
 

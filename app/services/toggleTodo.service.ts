@@ -10,7 +10,9 @@ const toggleTodoService: ServiceSchema = {
                 id: 'number'
             },
             handler(ctx: Context<{id: number}>) {
+                console.log('Current todos:', todos);
                 const { id } = ctx.params;
+                
                 const todo = todos.find(todo => todo.id === id)
                 
                 if(!todo) {

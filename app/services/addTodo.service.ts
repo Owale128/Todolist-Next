@@ -17,6 +17,7 @@ const addTodoService: ServiceSchema = {
                 }
                 
                 const newTodo = new Todo(text)
+                console.log('New todo added:', newTodo); 
                 todos.push(newTodo)
                 return newTodo
             },

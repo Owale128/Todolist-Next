@@ -8,9 +8,10 @@ const Todos = () => {
 
     const { todos, dispatch } = useContext(TodosAllContext)
 
-    const removeTodo = useCallback (async (id: number) => {
+    const removeTodo = async (id: number) => {
         try {
-          const response = await axios.delete('/api/removedTodos', {data: {id}})
+          console.log('Remove todo with id', id)
+          const response = await axios.delete('/api/removeTodo', {data: {id}})
           const removedTodo = response.data
             dispatch({
                 type: ActionType.REMOVED,
@@ -19,10 +20,11 @@ const Todos = () => {
         }catch (error) {
             console.error('Error removing todo', error)
         }
-    }, [dispatch])
+    }
 
-    const toggleTodo = useCallback (async (id: number) => {
+    const toggleTodo = async (id: number) => {
         try{
+          console.log('Toggle todo with id', id)
           const response =  await axios.put('/api/toggleTodo', {id})
           const toggledTodo = response.data
                 dispatch({
@@ -32,7 +34,7 @@ const Todos = () => {
         }catch (error) {
             console.error('Error toggle todo', error)
         }
-    }, [dispatch])
+    }
 
   return (
     <div className='todos'>

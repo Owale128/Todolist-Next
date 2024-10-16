@@ -10,18 +10,19 @@ const removeTodoService: ServiceSchema = {
                 id: 'number'
             },
             handler(ctx: Context<{id: number}>) {
-                const{id} = ctx.params;
+                const{ id } = ctx.params;
                 
                 const updatedTodos = todos.filter(todo => todo.id !== id)
                 
                 if(updatedTodos.length === todos.length) {
+                    console.error(`Todo with id ${id} not found`);
                     throw Error('Todo not found')
                 }
                 
                 todos.length = 0
                 todos.push(...updatedTodos)
                 
-                return {id}
+                return { id }
             }
         }
     }

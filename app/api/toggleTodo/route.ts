@@ -10,10 +10,10 @@ export async function PUT(req: NextRequest) {
         if(!id) {
             return NextResponse.json({ error: 'Todo ID is required'}, {status: 400})
         }
+        
+    const toggledTodo = await broker.call('toggle.todo', {id}) 
 
-    const toggleTodo = await broker.call('toggle.todo', {id}) 
-
-     return NextResponse.json(toggleTodo, {status: 200})
+     return NextResponse.json(toggledTodo, {status: 200})
 
     } catch (error) {
 

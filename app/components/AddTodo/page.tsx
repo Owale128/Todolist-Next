@@ -26,6 +26,7 @@ const AddTodo = () => {
                 payload: newTodo
             })
             setUserInput('')
+            
         } catch (error) {
             console.error('Error adding todo', error)
         }

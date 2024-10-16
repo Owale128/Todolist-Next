@@ -9,7 +9,7 @@ const broker = new ServiceBroker({logger: true})
 broker.createService(listTodosService)
 broker.createService(addTodoService)
 broker.createService(toggleTodoService)
-broker.createService(removeTodoService)
+broker.createService(removeTodoService);
 
 broker.start()
   .then(() => {

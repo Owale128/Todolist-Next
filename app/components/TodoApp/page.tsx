@@ -15,9 +15,10 @@ const TodoApp = () => {
     const fetchTodos = async () => {
       try {
         const response = await axios.get('/api/listTodos');
+        const fetchedTodos = response.data
         dispatch({
           type: ActionType.SET_TODOS,
-          payload: response.data,
+          payload: fetchedTodos,
         });
       } catch (error) {
         console.error('Error fetching todos:', error);

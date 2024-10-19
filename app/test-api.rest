@@ -15,7 +15,7 @@ PUT http://localhost:3000/api/toggleTodo
 Content-Type: application/json
 
 { 
-  "id": 1728740725103
+  "id": "6713a6f9f2676e2cf6d39f82"
 }
 
 ### DELETE to delete todo
@@ -23,5 +23,5 @@ DELETE http://localhost:3000/api/removedTodos
 Content-Type: application/json
 
 { 
-  "id": 1728740725103
+  "id": "6713a6f9f2676e2cf6d39f82"
 }

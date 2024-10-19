@@ -4,17 +4,17 @@ import { NextRequest, NextResponse } from "next/server";
 export async function DELETE(req: NextRequest) { 
     try {
 
-        const body = await req.json(); 
-        const { id } = body;
+        const { id } = await req.json()
         
         if(!id) {
-            return NextResponse.json({error: 'ID is required'}, {status: 400})
+            return NextResponse.json({error: 'Todo ID is required'}, {status: 400})
         }
 
         const removedTodo = await broker.call('remove.todo', {id})
-
         return NextResponse.json(removedTodo, {status: 200})
-    } catch (error) {  
+
+        } catch (error) {  
+        
         return NextResponse.json(error, {status: 500})
     }
 }

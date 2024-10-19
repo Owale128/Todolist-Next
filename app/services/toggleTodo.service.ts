@@ -1,5 +1,6 @@
 import { Context, ServiceSchema } from "moleculer";
-import { todos } from "../utils/todoUtils";
+import { connectToDatabase } from "../db/mongodbConnection";
+import { ObjectId } from "mongodb";
 
 
 const toggleTodoService: ServiceSchema = {
@@ -7,20 +8,30 @@ const toggleTodoService: ServiceSchema = {
     actions: {
         todo: {
             params: {
-                id: 'number'
+                id: 'string'
             },
-            handler(ctx: Context<{id: number}>) {
-                console.log('Current todos:', todos);
-                const { id } = ctx.params;
-                
-                const todo = todos.find(todo => todo.id === id)
+            async handler(ctx: Context<{id: string}>) {
+                const { id } = ctx.params
+
+                const db = await connectToDatabase()
+                const todosCollection = db.collection('todos')
+                const todo = await todosCollection.findOne({ _id: new ObjectId(id)})
                 
                 if(!todo) {
-                    throw new Error ('Todo not found!')
+                    throw new Error ('Todo Not Found!')
                 }
                 
-                todo.done = !todo.done;
-                return todo;
+                const updatedTodo = await todosCollection.findOneAndUpdate(
+                    { _id: new ObjectId (id)},
+                    { $set: {done: !todo.done} },
+                    { returnDocument: 'after' }
+                )
+
+                if( !updatedTodo || !updatedTodo.value) {
+                    throw new Error('Failed to update the todo')
+                }
+
+                return updatedTodo.value
             }
         } 
     }

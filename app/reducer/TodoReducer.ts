@@ -1,8 +1,8 @@
 import { Todo } from "../model/Todo";
 
-export interface IAction <T> {
+export interface IAction {
     type: ActionType;
-    payload: T;
+    payload: string | Todo | Todo[];
 }
 
 export enum ActionType {
@@ -12,7 +12,7 @@ export enum ActionType {
     SET_TODOS
 }
 
-export const TodoReducer = (todos: Todo[], action: IAction< Todo[] | Todo | number>): Todo[] => {
+export const TodoReducer = (todos: Todo[], action: IAction): Todo[] => {
     switch(action.type) {
 
         case ActionType.SET_TODOS:
@@ -23,11 +23,13 @@ export const TodoReducer = (todos: Todo[], action: IAction< Todo[] | Todo | numb
         }
 
         case ActionType.REMOVED:
-            return todos.filter((todo) => todo.id !== action.payload as number)
+            return todos.filter((todo) => todo._id !== action.payload as string)
 
             case ActionType.TOGGLED:
                 return todos.map((todo) => {
-                    if (todo.id === action.payload as number) return {...todo, done: !todo.done}
+                    if (todo._id === action.payload as string) {
+                        return {...todo, done: !todo.done}
+                    }
                     return todo
                 })
 

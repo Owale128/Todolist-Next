@@ -4,18 +4,16 @@ import { NextRequest, NextResponse } from "next/server";
 export async function PUT(req: NextRequest) {   
      try {
 
-        const body = await req.json(); 
-        const { id } = body;
+        const { id } = await req.json()
 
         if(!id) {
             return NextResponse.json({ error: 'Todo ID is required'}, {status: 400})
         }
         
         const toggledTodo = await broker.call('toggle.todo', {id}) 
+        return NextResponse.json(toggledTodo, {status: 200})
 
-     return NextResponse.json(toggledTodo, {status: 200})
-
-    } catch (error) {
+        } catch (error) {
 
         return NextResponse.json(error, {status: 500})
     }

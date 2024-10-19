@@ -1,5 +1,6 @@
 import { Context, ServiceSchema } from "moleculer";
-import { todos } from "../utils/todoUtils";
+import { connectToDatabase } from "../db/mongodbConnection";
+import { ObjectId } from "mongodb";
 
 
 const removeTodoService: ServiceSchema = {
@@ -7,20 +8,18 @@ const removeTodoService: ServiceSchema = {
     actions: {
         todo: {
             params: {
-                id: 'number'
+                id: 'string'
             },
-            handler(ctx: Context<{id: number}>) {
-                const{ id } = ctx.params;
+            async handler(ctx: Context<{id: string}>) {
+                const{ id } = ctx.params
+
+                const db = await connectToDatabase()
+                const todosCollection = db.collection('todos')
+                const result = await todosCollection.deleteOne({ _id: new ObjectId(id)})
                 
-                const updatedTodos = todos.filter(todo => todo.id !== id)
-                
-                if(updatedTodos.length === todos.length) {
-                    console.error(`Todo with id ${id} not found`);
-                    throw Error('Todo not found')
+                if(result.deletedCount === 0) {
+                    throw new Error ('Todo Not Found')
                 }
-                
-                todos.length = 0
-                todos.push(...updatedTodos)
                 
                 return { id }
             }

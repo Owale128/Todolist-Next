@@ -3,17 +3,17 @@ import React from 'react'
 
 interface IDisplayTodo {
   todo: Todo;
-  toggleTodo: (id: number) => void;
-  removeTodo: (id: number) => void;
+  toggleTodo: (_id: string) => void;
+  removeTodo: (_id: string) => void;
 }
 
 const DisplayTodo = ({todo, toggleTodo, removeTodo}: IDisplayTodo) => {
-    
+    console.log('todos to Display', todo)
   return (
     <div className='text-center text-xl'>
       <span className={`${todo.done ? 'done' : ''} text-2xl`} >{todo.text}</span>
-      <button className={`${'toggleBtn'} mx-10 my-5 border-2 border-black rounded-md px-1`} onClick={() => toggleTodo(todo.id)}>Done</button>
-      <button className={`${'removeBtn'} border-2 border-black rounded-md px-1`} onClick={() => removeTodo(todo.id)}>Remove</button>
+      <button className={`${'toggleBtn'} mx-10 my-5 border-2 border-black rounded-md px-1`} onClick={() => toggleTodo(todo._id)}>Done</button>
+      <button className={`${'removeBtn'} border-2 border-black rounded-md px-1`} onClick={() => removeTodo(todo._id)}>Remove</button>
       
     </div>
   )

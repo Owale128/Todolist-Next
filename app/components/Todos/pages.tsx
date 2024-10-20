@@ -31,11 +31,10 @@ const Todos = () => {
           console.log('Toggle todo with id', id)
           const response =  await axios.put('/api/toggleTodo', {id})
           const toggledTodo = response.data
-
-          console.log('Toggled todo from server:', toggledTodo);  
+          
                 dispatch({
                     type: ActionType.TOGGLED,
-                    payload: toggledTodo.id
+                    payload: toggledTodo
                 })
 
         }catch (error) {

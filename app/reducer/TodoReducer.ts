@@ -27,8 +27,8 @@ export const TodoReducer = (todos: Todo[], action: IAction): Todo[] => {
 
             case ActionType.TOGGLED:
                 return todos.map((todo) => {
-                    if (todo._id === action.payload as string) {
-                        return {...todo, done: !todo.done}
+                    if (todo._id === (action.payload as Todo)._id) {
+                        return action.payload as Todo
                     }
                     return todo
                 })

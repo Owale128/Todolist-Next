@@ -1,21 +1,65 @@
 'use client';
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 export default function Home() {
+  const[username, setUsername] = useState('')
+  const[password, setPassword] = useState('')
   const router = useRouter()
 
-  const goToTodolist = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    router.push('/components/TodoApp')
+
+    if(username && password) {
+      router.push('/components/TodoApp')
+    } else {
+      alert('Please enter both username and password')
+    }
+  }
+
+  const goToRegister = (e: FormEvent) => {
+    e.preventDefault()
+    router.push('/register')
   }
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
      <h1 className="text-6xl">Login Page</h1>
 
-     <form onSubmit={goToTodolist}>
-      <button type="submit" className="text-3xl">Click To Login</button>
+     <form 
+     onSubmit={handleSubmit}
+     className="border-4 border-black p-10 rounded-xl flex flex-col text-xl"
+     >
+
+      <label htmlFor="username" className="mb-1">Username</label>
+      <input type="text"
+      name="username"
+      className="border-2 border-black block mb-2"
+      onChange={(e) => setUsername(e.target.value)}
+      required
+      />
+
+      <label htmlFor="password" className="mb-1">Password</label>
+      <input type="password"
+      name="password"
+      className="border-2 border-black block"
+      onChange={(e) => setPassword(e.target.value)}
+      required
+      />
+
+      <button type="submit"
+       onClick={handleSubmit}
+       className="text-xl border-2 border-black rounded-lg px-2 mt-9 block">
+        Login
+        </button>
+
+       <button
+       type="button"
+       onClick={goToRegister}
+       className="text-xl border-2 border-black rounded-lg px-2 mt-4">
+        Registry account
+        </button>
+
      </form>
 
     </div>

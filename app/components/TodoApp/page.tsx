@@ -1,10 +1,11 @@
 'use client'
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType, TodoReducer } from '@/app/reducer/TodoReducer'
-import React, { useContext, useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import AddTodo from '../AddTodo/page'
 import Todos from '../Todos/pages'
 import axios from 'axios'
+import Header from '../Header/page'
 
 const TodoApp = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
@@ -34,13 +35,16 @@ const TodoApp = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <>
+    <Header />
+    <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-3 font-[family-name:var(--font-geist-sans)]">
       <TodosAllContext.Provider value={{ todos, dispatch}}>
         <h1 className="text-6xl">TodoList</h1>
         <AddTodo />
         <Todos />
       </TodosAllContext.Provider>
     </div>
+  </>
   );
 };
 

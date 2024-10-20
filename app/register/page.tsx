@@ -24,11 +24,19 @@ const Register= () => {
     }
   
     return (
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <>
+        <button 
+        onClick={() => router.push('/')}
+        className="border-2 border-black px-2 ml-6 mt-4 rounded-lg"
+        >
+        Back
+        </button>
+
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)]">
        <h1 className="text-6xl">Register Page</h1>
   
        <form 
-       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl"
+       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl -mt-20"
        onSubmit={backToLogin}
        >
 
@@ -66,6 +74,7 @@ const Register= () => {
        </form>
   
       </div>
+    </>
     );
 }
 

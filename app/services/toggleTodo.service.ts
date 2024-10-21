@@ -2,7 +2,6 @@ import { Context, ServiceSchema } from "moleculer";
 import { connectToDatabase } from "../db/mongodbConnection";
 import { ObjectId } from "mongodb";
 
-
 const toggleTodoService: ServiceSchema = {
     name: 'toggle',
     actions: {

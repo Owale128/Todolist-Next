@@ -1,7 +1,5 @@
 import { ServiceSchema } from "moleculer";
-import { todos } from "../utils/todoUtils";
 import { connectToDatabase } from "../db/mongodbConnection";
-
 
 const listTodosService: ServiceSchema = {
     name: 'list',

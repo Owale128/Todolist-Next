@@ -2,7 +2,6 @@ import { Context, ServiceSchema } from "moleculer";
 import { connectToDatabase } from "../db/mongodbConnection";
 import { ObjectId } from "mongodb";
 
-
 const removeTodoService: ServiceSchema = {
     name: 'remove',
     actions: {

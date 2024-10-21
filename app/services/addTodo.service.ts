@@ -1,6 +1,4 @@
 import { Context, ServiceSchema } from "moleculer";
-import { Todo } from "../model/Todo";
-import { todos } from "../utils/todoUtils";
 import { connectToDatabase } from "../db/mongodbConnection";
 
 const addTodoService: ServiceSchema = {

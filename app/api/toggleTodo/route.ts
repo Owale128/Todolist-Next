@@ -11,6 +11,7 @@ export async function PUT(req: NextRequest) {
         }
         
         const toggledTodo = await broker.call('toggle.todo', {id}) 
+    
         return NextResponse.json(toggledTodo, {status: 200})
 
         } catch (error) {

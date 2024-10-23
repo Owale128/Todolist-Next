@@ -26,11 +26,11 @@ const toggleTodoService: ServiceSchema = {
                     { returnDocument: 'after' }
                 )
 
-                if( !updatedTodo || !updatedTodo.value) {
+                if( !updatedTodo) {
                     throw new Error('Failed to update the todo')
                 }
 
-                return updatedTodo.value
+                return updatedTodo
             }
         } 
     }

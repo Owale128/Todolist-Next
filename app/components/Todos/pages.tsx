@@ -7,11 +7,9 @@ import axios from 'axios'
 const Todos = () => {
 
     const { todos, dispatch } = useContext(TodosAllContext)
-    console.log('todos', todos)
-    const removeTodo = async (id: string) => {
-        try {
 
-          console.log('Remove todo with id', id)
+    const removeTodo = async (id: string) => {
+      try {
           const response = await axios.delete('/api/removeTodo', {data: {id}})
           const removedTodo = response.data
 
@@ -25,10 +23,8 @@ const Todos = () => {
         }
     }
 
-    const toggleTodo = async (id: string) => {
-        try{
-
-          console.log('Toggle todo with id', id)
+    const toggleTodo = async (id: string) => {  
+      try{
           const response =  await axios.put('/api/toggleTodo', {id})
           const toggledTodo = response.data
           

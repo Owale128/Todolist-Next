@@ -22,7 +22,7 @@ describe('A service to add todo', () => {
         };
 
         mockDb = {
-            collection: jest.fn(() => mockTodosCollection as unknown as Collection)
+            collection: jest.fn(() => mockTodosCollection)
         };
 
         (connectToDatabase as jest.Mock).mockResolvedValue(mockDb);

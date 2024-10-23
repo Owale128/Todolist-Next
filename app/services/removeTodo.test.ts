@@ -1,47 +1,57 @@
-/* import {  ServiceBroker } from "moleculer"
+import { ServiceBroker } from "moleculer";
 import RemoveTodoService from "./removeTodo.service";
+import { ObjectId } from "mongodb";
+import { connectToDatabase } from "../db/mongodbConnection";
+
+jest.mock("../db/mongodbConnection", () => ({
+    connectToDatabase: jest.fn()
+}));
 
 describe('A service to remove todo', () => {
-    const broker = new ServiceBroker()
+    const broker = new ServiceBroker();
+    broker.createService(RemoveTodoService);
 
-    broker.createService(RemoveTodoService)
+    let todosCollection = {
+        deleteOne: jest.fn()
+    };
+
+    beforeAll(() => broker.start());
+    afterAll(() => broker.stop());
 
     beforeEach(() => {
-    todos.push({ id: 1, text: 'Learning Moleculer', done: false });
-    todos.push({ id: 2, text: 'Building a Todo App', done: false });
-    todos.push({ id: 3, text: 'I Love Coding', done: false });
-    })
+        (connectToDatabase as jest.Mock).mockResolvedValue({
+            collection: () => todosCollection
+        });
+    });
 
     afterEach(() => {
-        todos.length = 0;
-    })
+        jest.clearAllMocks();
+    });
 
-    beforeAll(() => broker.start())
-    afterAll(() => broker.stop())
-
-    describe('When clicking on remove',() => {
+    describe('When clicking on remove', () => {
         it('Should remove a todo by ID', async () => {
-            
-            expect(todos).toHaveLength(3);
-            
-            const todoToRemove = todos[1];
-            const updatedTodos = await broker.call('remove.todo', {id: todoToRemove.id})
-            
-            expect(updatedTodos).toHaveLength(2)
-            expect(todos).toHaveLength(2)
-            expect(todos.some(todo => todo.id === todoToRemove.id)).toBe(false)
-            
-            expect(todos[0].text).toBe('Learning Moleculer')
-            expect(todos[1].text).toBe('I Love Coding')
-            
-        })
-    })
-    
-    describe('when trying to remove todo with non-existent ID ', () => {
+
+            todosCollection.deleteOne.mockResolvedValue({ deletedCount: 1 });
+
+            const todoToRemoveId = new ObjectId().toString();
+
+            const result = await broker.call('remove.todo', { id: todoToRemoveId });
+
+            expect(todosCollection.deleteOne).toHaveBeenCalledWith({ _id: new ObjectId(todoToRemoveId) });
+            expect(result).toEqual({ id: todoToRemoveId });
+        });
+    });
+
+    describe('When trying to remove todo with non-existent ID', () => {
         it('Should throw an error', async () => {
-            expect(todos).toHaveLength(3)
-            
-            await expect(broker.call('remove.todo', {id: 999})).rejects.toThrow('Todo not found')
-        } )
-    })
-}) */
+
+            todosCollection.deleteOne.mockResolvedValue({ deletedCount: 0 });
+
+            const nonExistentId = new ObjectId().toString();
+
+            await expect(broker.call('remove.todo', { id: nonExistentId }))
+                .rejects
+                .toThrow('Todo Not Found');
+        });
+    });
+});

@@ -16,15 +16,13 @@ describe('A service to add todo', () => {
     afterAll(() => broker.stop());
 
     beforeEach(() => {
-  
         mockTodosCollection = {
             insertOne: jest.fn()
         };
-
+        
         mockDb = {
             collection: jest.fn(() => mockTodosCollection)
         };
-
         (connectToDatabase as jest.Mock).mockResolvedValue(mockDb);
     });
 

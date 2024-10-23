@@ -19,7 +19,7 @@ describe('Listing todos', () => {
     const mockDb = {
         collection: jest.fn().mockReturnThis(),
         find: jest.fn().mockReturnThis(),
-        insertOne: jest.fn().mockImplementation((newTodo) => {
+        insertOne: jest.fn().mockImplementation(() => {
             return { insertedId: "mocked-id" }; 
         }),
         toArray: jest.fn().mockResolvedValue(mockTodos)

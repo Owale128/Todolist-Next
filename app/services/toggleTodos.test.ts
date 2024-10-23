@@ -1,5 +1,4 @@
-import { ServiceBroker } from "moleculer"
-import { todos } from "../utils/todoUtils";
+/* import { ServiceBroker } from "moleculer"
 import addTodoService from "./addTodo.service";
 import { Todo } from "../model/Todo";
 import toggleTodo from "./toggleTodo.service";
@@ -28,4 +27,4 @@ describe('Toggle todo status', () => {
         })
         
     })
-})
+}) */

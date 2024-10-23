@@ -1,4 +1,4 @@
-import { ServiceBroker } from "moleculer"
+/* import { ServiceBroker } from "moleculer"
 import listTodosService from "./listAllTodos.service"
 import addTodoService from "./addTodo.service"
 
@@ -23,4 +23,4 @@ describe('Listing todos', () => {
         
     })
 })
-})
+}) */

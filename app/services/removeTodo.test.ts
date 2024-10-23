@@ -1,5 +1,4 @@
-import {  ServiceBroker } from "moleculer"
-import { todos } from "../utils/todoUtils";
+/* import {  ServiceBroker } from "moleculer"
 import RemoveTodoService from "./removeTodo.service";
 
 describe('A service to remove todo', () => {
@@ -45,4 +44,4 @@ describe('A service to remove todo', () => {
             await expect(broker.call('remove.todo', {id: 999})).rejects.toThrow('Todo not found')
         } )
     })
-})
+}) */

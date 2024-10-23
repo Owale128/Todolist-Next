@@ -2,12 +2,13 @@ import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGO_URI || 'defaultUriName'
 const dbName = process.env.MONGO_DB_NAME || 'defaultDatabseName'
-const client = new MongoClient(uri)
+let client: MongoClient; 
 let isConntected = false
 
 export async function connectToDatabase() {
     try {
         if (!isConntected) {
+            client = new MongoClient(uri)
             await client.connect();
             isConntected = true;
             console.log("Database connected");

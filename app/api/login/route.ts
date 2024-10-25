@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {
+        
         const { username, password } = await req.json()
 
         if(!username || !password){
@@ -11,6 +12,7 @@ export async function POST(req: NextRequest) {
         }
 
         const result = await broker.call('login.user', { username, password })
+
         return NextResponse.json(result, { status: 200 })
     } catch (error) {
         return NextResponse.json({ message: 'Login failed', error}, { status: 500 })

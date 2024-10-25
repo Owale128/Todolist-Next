@@ -4,6 +4,7 @@ const Header = () => {
  const router = useRouter()
 
  const logOut = () => {
+  localStorage.removeItem('token');
   router.push('/')
  }
   return (

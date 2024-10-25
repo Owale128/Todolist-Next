@@ -11,10 +11,9 @@ export async function DELETE(req: NextRequest) {
         }
 
         const removedTodo = await broker.call('remove.todo', {id})
-        return NextResponse.json(removedTodo, {status: 200})
 
+        return NextResponse.json(removedTodo, {status: 200})
         } catch (error) {  
-        
         return NextResponse.json(error, {status: 500})
     }
 }

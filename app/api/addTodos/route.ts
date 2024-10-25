@@ -11,10 +11,9 @@ export async function POST(req: NextRequest) {
         }
 
         const result = await broker.call('add.todo', {text, userId})
-        return NextResponse.json(result, {status: 200})
 
+        return NextResponse.json(result, {status: 200})
     } catch (error) {
-        
        return NextResponse.json(error, {status: 500})
     }
 }

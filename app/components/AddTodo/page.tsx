@@ -25,8 +25,7 @@ const AddTodo = () => {
             const decodedToken = jwt.decode(token) as {userId: string}
             const userId = decodedToken.userId;
 
-            const response = await axios.post('/api/addTodos', {text: userInput, userId})
-
+            const response = await axios.post('/api/addTodos', {text: userInput, userId: userId})
             const newTodo = response.data;
 
             dispatch({

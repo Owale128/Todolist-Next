@@ -1,14 +1,27 @@
 import broker from "@/app/moleculer.config";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import jwt from 'jsonwebtoken'
 
-export async function GET() {
+const secret = process.env.JWT_SECRET || 'Fallback-jwt'
+
+export async function GET(req: NextRequest) {
     try {
 
-    await broker.waitForServices(['list'], 5000);
-    const todos = await broker.call('list.todo');
+        const token = req.headers.get("Authorization")?.split(" ")[1];
 
-    return NextResponse.json(todos, {status: 200})
+        if (!token) {
+            return NextResponse.json({ message: "Token missing" }, { status: 401 });
+        }
 
+        const { userId } = jwt.verify(token, secret) as { userId: string };
+
+        if (!userId) {
+            return NextResponse.json({ message: "Invalid token" }, { status: 403 });
+        }
+
+        const todos = await broker.call('list.todo', { userId});
+
+        return NextResponse.json(todos, {status: 200})
     } catch(error) { 
         return NextResponse.json(error, {status: 500})
     }

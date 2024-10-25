@@ -14,6 +14,7 @@ export default function Home() {
     if(username && password) {
 
       try {
+        
         const response = await axios.post('/api/login', { username, password })
         const { token } = response.data;
         localStorage.setItem('token', token)

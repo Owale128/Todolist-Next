@@ -6,16 +6,23 @@ import AddTodo from '../AddTodo/page'
 import Todos from '../Todos/pages'
 import axios from 'axios'
 import Header from '../Header/page'
+import { useRouter } from 'next/navigation'
 
 const TodoApp = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
-  const [loading, setLoading] = useState(true);  
+  const [loading, setLoading] = useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     const fetchTodos = async () => {
+      const token = localStorage.getItem('token');
 
+      if(!token) {
+        router.replace('/')
+        return
+      }
+      
       try {
-        const token = localStorage.getItem('token');
         const response = await axios.get('/api/listTodos', {
           headers: {Authorization: `Bearer ${token}`}
         });

@@ -1,4 +1,5 @@
 'use client'
+import axios from "axios"
 import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
 
@@ -9,7 +10,7 @@ const Register= () => {
 
     const router = useRouter()
 
-    const backToLogin = (e: FormEvent) => {
+    const handleRegister = async (e: FormEvent) => {
       e.preventDefault()
 
       if(password !== confirmPassword) {
@@ -17,9 +18,22 @@ const Register= () => {
         return
       }
 
-        if(username && password) {
-            alert('Register Successful')
+        try {
+          const response = await axios.post('/api/register', {
+            username,
+            password
+          });
+
+          if(response.status === 200) {
+            alert(response.data.message || 'Registration successful');
             router.push('/')
+          } else {
+            alert(response.data.message || 'Registration failed')
+          }
+        
+        } catch (error) {
+          console.error('Registration error', error);
+          alert('An error occurred during registration')
         }
     }
   
@@ -37,7 +51,7 @@ const Register= () => {
   
        <form 
        className="border-4 border-black p-10 rounded-xl flex flex-col text-xl -mt-20"
-       onSubmit={backToLogin}
+       onSubmit={handleRegister}
        >
 
         <label htmlFor="username" className="mb-1">Enter Username</label>

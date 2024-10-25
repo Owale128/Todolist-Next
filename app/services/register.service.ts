@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 
 const registerService: ServiceSchema = {
-    name: 'regiser',
+    name: 'register',
     actions: {
         async createUser(ctx: Context<{username: string; password: string}>) {
             const {username, password} = ctx.params;

@@ -1,4 +1,5 @@
 'use client';
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -7,11 +8,22 @@ export default function Home() {
   const[password, setPassword] = useState('')
   const router = useRouter()
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault()
 
     if(username && password) {
-      router.push('/components/TodoApp')
+
+      try {
+        const response = await axios.post('/api/login', { username, password })
+        const { token } = response.data;
+        localStorage.setItem('token', token)
+        router.push('/components/TodoApp')
+
+      } catch (error) {
+        alert('Login failed')
+        console.error(error)
+      }
+
     } else {
       alert('Please enter both username and password')
     }
@@ -27,7 +39,7 @@ export default function Home() {
      <h1 className="text-6xl">Login Page</h1>
 
      <form 
-     onSubmit={handleSubmit}
+     onSubmit={handleLogin}
      className="border-4 border-black p-10 rounded-xl flex flex-col text-xl"
      >
 
@@ -48,7 +60,6 @@ export default function Home() {
       />
 
       <button type="submit"
-       onClick={handleSubmit}
        className="text-xl border-2 border-black rounded-lg px-2 mt-9 block">
         Login
         </button>

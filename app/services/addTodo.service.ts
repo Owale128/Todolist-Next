@@ -6,10 +6,11 @@ const addTodoService: ServiceSchema = {
     actions: {
         todo:{
             params: {
-                text: 'string'
+                text: 'string',
+                userId: 'string'
             },
-            async handler(ctx: Context<{text: string}>) {
-                const {text} = ctx.params
+            async handler(ctx: Context<{text: string, userId: string}>) {
+                const {text, userId} = ctx.params
                 
                 if(!text) {
                     throw Error('Todo text is required!')
@@ -21,7 +22,8 @@ const addTodoService: ServiceSchema = {
                 const newTodo = {
                     text,
                     done: false,
-                    createdAt: new Date() 
+                    createdAt: new Date(),
+                    userId
                 };
 
                 const result = await todosCollection.insertOne(newTodo)

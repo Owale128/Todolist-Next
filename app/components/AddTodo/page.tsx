@@ -1,7 +1,8 @@
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType } from '@/app/reducer/TodoReducer'
 import axios from 'axios'
-import React, { FormEvent, useContext, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
+import jwt from  'jsonwebtoken'
 
 const AddTodo = () => {
     const{ dispatch } = useContext(TodosAllContext)
@@ -15,9 +16,16 @@ const AddTodo = () => {
         }
 
         try {
-            const response = await axios.post('/api/addTodos', {
-                text: userInput,
-            })
+
+            const token = localStorage.getItem('token')
+            if(!token) {
+                throw new Error('No token found')
+            }
+            
+            const decodedToken = jwt.decode(token) as {userId: string}
+            const userId = decodedToken.userId;
+
+            const response = await axios.post('/api/addTodos', {text: userInput, userId})
 
             const newTodo = response.data;
 

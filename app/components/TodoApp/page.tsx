@@ -13,13 +13,20 @@ const TodoApp = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
+
       try {
-        const response = await axios.get('/api/listTodos');
+        const token = localStorage.getItem('token');
+        const response = await axios.get('/api/listTodos', {
+          headers: {Authorization: `Bearer ${token}`}
+        });
+
         const fetchedTodos = response.data
+
         dispatch({
           type: ActionType.SET_TODOS,
           payload: fetchedTodos,
         });
+        
       } catch (error) {
         console.error('Error fetching todos:', error);
       } finally {

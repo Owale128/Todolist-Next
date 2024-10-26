@@ -69,6 +69,7 @@ const Register= () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="border-2 border-black block mb-2"
+        minLength={10}
         required
         />
 

@@ -6,13 +6,11 @@ import AddTodo from '../AddTodo/page'
 import Todos from '../Todos/pages'
 import axios from 'axios'
 import Header from '../Header/page'
-import { useRouter } from 'next/navigation'
 import ProtectedRoute from '../ProtectedRoute/page'
 
 const TodoApp = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
   const [loading, setLoading] = useState(true);
-  const router = useRouter()
 
   useEffect(() => {
     const fetchTodos = async () => {

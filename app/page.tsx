@@ -2,27 +2,35 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import Spinner from "./components/Spinner/page";
 
 export default function Home() {
   const[username, setUsername] = useState('')
   const[password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault()
 
     if(username && password) {
+      setLoading(true)
 
       try {
         
         const response = await axios.post('/api/login', { username, password })
         const { token } = response.data;
         localStorage.setItem('token', token)
-        router.push('/components/TodoApp')
+
+        setTimeout(() => {
+          router.push('/components/TodoApp')
+          setLoading(false)
+        }, 2000);
 
       } catch (error) {
         alert('Login failed')
         console.error(error)
+        setLoading(false)
       }
 
     } else {
@@ -62,7 +70,7 @@ export default function Home() {
 
       <button type="submit"
        className="text-xl border-2 border-black rounded-lg px-2 mt-9 block">
-        Login
+        {loading ? 'logging in' : 'login'}
         </button>
 
        <button
@@ -74,6 +82,7 @@ export default function Home() {
 
      </form>
 
+    {loading && <Spinner/>}
     </div>
   );
 }

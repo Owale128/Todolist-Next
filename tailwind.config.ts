@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        popUp: {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+      },
+      animation: {
+        popUp: 'popUp 0.8s ease-out',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

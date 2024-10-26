@@ -45,6 +45,7 @@ const AddTodo = () => {
         type="text"
         value={(userInput)}
         onChange={(e) => setUserInput(e.target.value)}
+        maxLength={20}
         />
         <button className='text-2xl ml-3 border-2 border-black rounded-lg p-1'>Save Todo</button>
     </form>

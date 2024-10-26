@@ -40,10 +40,20 @@ const Todos = () => {
 
   return (
     <div className='todos'>
+       <table className="table-auto w-full border-collapse border border-gray-200">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="p-4 border border-gray-300">Todo</th>
+            <th className="p-4 border border-gray-300">Toggle</th>
+            <th className="p-4 border border-gray-300">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
        {todos.map((todo) => (
-        <DisplayTodo key={todo._id} todo={todo} toggleTodo={toggleTodo} removeTodo={removeTodo}/>
-       ))} 
-      
+         <DisplayTodo key={todo._id} todo={todo} toggleTodo={toggleTodo} removeTodo={removeTodo}/>
+        ))} 
+        </tbody>
+      </table>
     </div>
   )
 }

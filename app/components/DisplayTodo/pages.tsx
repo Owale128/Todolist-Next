@@ -7,15 +7,36 @@ interface IDisplayTodo {
   removeTodo: (_id: string) => void;
 }
 
-const DisplayTodo = ({todo, toggleTodo, removeTodo}: IDisplayTodo) => {
-
+const DisplayTodo = ({ todo, toggleTodo, removeTodo }: IDisplayTodo) => {
   return (
-    <div className='text-center text-xl'>
-      <span className={`${todo.done ? 'done' : ''} text-2xl`} >{todo.text}</span>
-      <button className={`${'toggleBtn'} mx-10 my-5 border-2 border-black rounded-md px-1`} onClick={() => toggleTodo(todo._id)}>Done</button>
-      <button className={`${'removeBtn'} border-2 border-black rounded-md px-1`} onClick={() => removeTodo(todo._id)}>Remove</button>
-    </div>
-  )
-}
+    <tr className="text-center text-xl">
+      
+      <td className={`${todo.done ? 'line-through' : ''} text-2xl p-4`}>
+        {todo.text}
+      </td>
 
-export default DisplayTodo
+      <td className="p-4">
+        <div
+          onClick={() => toggleTodo(todo._id)}
+          className="relative w-24 h-10 flex items-center justify-center border-2 border-black rounded-full cursor-pointer overflow-hidden transition-all duration-500 ease-in-out">
+          <span className="absolute left-2 text-red-500 text-3xl">✕</span>
+          <span className="absolute right-2 text-green-500 text-3xl">✓</span>
+          <div
+            className={`absolute w-8 h-8 rounded-full transition-transform duration-500 ${
+              todo.done ? 'translate-x-6 bg-green-500' : '-translate-x-6 bg-red-500'}`}>
+          </div>
+        </div>
+      </td>
+
+      <td className="p-4">
+        <button
+          className="border-2 border-black rounded-md px-3 py-1"
+          onClick={() => removeTodo(todo._id)}>
+          Remove
+        </button>
+      </td>
+    </tr>
+  );
+};
+
+export default DisplayTodo;

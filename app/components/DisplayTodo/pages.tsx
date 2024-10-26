@@ -19,8 +19,8 @@ const DisplayTodo = ({ todo, toggleTodo, removeTodo }: IDisplayTodo) => {
         <div
           onClick={() => toggleTodo(todo._id)}
           className="relative w-24 h-10 flex items-center justify-center border-2 border-black rounded-full cursor-pointer overflow-hidden transition-all duration-500 ease-in-out">
-          <span className="absolute left-2 text-red-500 text-3xl">✕</span>
-          <span className="absolute right-2 text-green-500 text-3xl">✓</span>
+          <span className="absolute left-2 text-red-500 text-2xl">✕</span>
+          <span className="absolute right-2 text-green-500 text-2xl">✓</span>
           <div
             className={`absolute w-8 h-8 rounded-full transition-transform duration-500 ${
               todo.done ? 'translate-x-6 bg-green-500' : '-translate-x-6 bg-red-500'}`}>

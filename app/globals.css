@@ -25,12 +25,3 @@ body {
     text-wrap: balance;
   }
 }
-
-.done {
-  text-decoration: line-through;
-}
-
-.toggleBtn, .removeBtn {
-  color: white;
-  background-color: black;
-}

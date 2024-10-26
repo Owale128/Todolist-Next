@@ -70,7 +70,7 @@ export default function Home() {
 
       <button type="submit"
        className="text-xl border-2 border-black rounded-lg px-2 mt-9 block">
-        {loading ? 'logging in' : 'login'}
+        {loading ? 'Logging in' : 'Login'}
         </button>
 
        <button

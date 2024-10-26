@@ -4,8 +4,10 @@ const Header = () => {
  const router = useRouter()
 
  const logOut = () => {
-  localStorage.removeItem('token');
-  router.push('/')
+  if(confirm('Are you sure?')){
+    localStorage.removeItem('token');
+    router.push('/')
+  }
  }
   return (
     <div>

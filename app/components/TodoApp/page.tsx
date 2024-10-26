@@ -7,6 +7,7 @@ import Todos from '../Todos/pages'
 import axios from 'axios'
 import Header from '../Header/page'
 import { useRouter } from 'next/navigation'
+import ProtectedRoute from '../ProtectedRoute/page'
 
 const TodoApp = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
@@ -16,11 +17,6 @@ const TodoApp = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       const token = localStorage.getItem('token');
-
-      if(!token) {
-        router.replace('/')
-        return
-      }
       
       try {
         const response = await axios.get('/api/listTodos', {
@@ -49,7 +45,7 @@ const TodoApp = () => {
   }
 
   return (
-    <>
+    <ProtectedRoute>
     <Header />
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-3 font-[family-name:var(--font-geist-sans)]">
       <TodosAllContext.Provider value={{ todos, dispatch}}>
@@ -58,7 +54,7 @@ const TodoApp = () => {
         <Todos />
       </TodosAllContext.Provider>
     </div>
-  </>
+  </ProtectedRoute>
   );
 };
 

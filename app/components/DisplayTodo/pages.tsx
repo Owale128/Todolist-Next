@@ -9,7 +9,7 @@ interface IDisplayTodo {
 
 const DisplayTodo = ({ todo, toggleTodo, removeTodo }: IDisplayTodo) => {
   return (
-    <tr className="text-center text-xl">
+    <tr className="text-center text-xl bg-white">
       
       <td className={`${todo.done ? 'line-through' : ''} text-2xl p-4`}>
         {todo.text}

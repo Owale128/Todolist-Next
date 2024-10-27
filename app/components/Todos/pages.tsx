@@ -54,14 +54,14 @@ const Todos = () => {
     }
 
   return (
-    <div className='flex flex-col'>
-      <button onClick={sort} className='text-2xl font-medium mb-6 underline'>Sort</button>
-       <table className="table-auto w-full border-collapse border border-gray-200 mb-20">
+    <div className='flex flex-col justify-center items-center'>
+      <button onClick={sort} className='text-xl font-medium mb-6 underline border border-black w-20 bg-white rounded-lg'>Sort</button>
+       <table className="table-auto w-full border-collapse border border-black mb-20">
         <thead>
-          <tr className="bg-gray-100">
-            <th className="p-4 border border-gray-300">Todo</th>
-            <th className="p-4 border border-gray-300">Toggle</th>
-            <th className="p-4 border border-gray-300">Remove</th>
+          <tr className="bg-gray-200">
+            <th className="p-4 border border-black">Todo</th>
+            <th className="p-4 border border-black">Toggle</th>
+            <th className="p-4 border border-black">Remove</th>
           </tr>
         </thead>
         <tbody>

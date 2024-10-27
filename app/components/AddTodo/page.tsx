@@ -41,13 +41,13 @@ const AddTodo = () => {
   return (
     <form onSubmit={handleSubmit}>
         <input
-        className='border-2 border-black text-2xl text-center' 
+        className='border-2 border-black text-2xl text-center bg-gray-50' 
         type="text"
         value={(userInput)}
         onChange={(e) => setUserInput(e.target.value)}
         maxLength={20}
         />
-        <button className='text-2xl ml-3 border-2 border-black rounded-lg p-1 bg-white'>Save Todo</button>
+        <button className='text-2xl ml-3 border-2 border-black rounded-lg p-1 bg-black text-white'>Save Todo</button>
     </form>
   )
 }

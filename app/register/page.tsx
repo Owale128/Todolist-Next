@@ -41,7 +41,7 @@ const Register= () => {
         <>
         <button 
         onClick={() => router.push('/')}
-        className="border-2 border-black px-2 ml-6 mt-4 rounded-lg"
+        className="border-2 border-black px-2 ml-6 mt-4 rounded-lg bg-white"
         >
         Back
         </button>
@@ -50,7 +50,7 @@ const Register= () => {
        <h1 className="text-6xl">Register Page</h1>
   
        <form 
-       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl -mt-20"
+       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl -mt-20  bg-white"
        onSubmit={handleRegister}
        >
 
@@ -59,7 +59,7 @@ const Register= () => {
         name="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="border-2 border-black block mb-2"
+        className="border-2 border-black bg-gray-200 block mb-2"
         required
         />
 
@@ -68,7 +68,7 @@ const Register= () => {
         name="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="border-2 border-black block mb-2"
+        className="border-2 border-black bg-gray-200 block mb-2"
         minLength={10}
         required
         />
@@ -78,13 +78,13 @@ const Register= () => {
         name="confirmPassword"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
-        className="border-2 border-black block"
+        className="border-2 border-black bg-gray-200 block"
         required
         />
 
          <button
          type="submit"
-         className="text-xl border-2 border-black rounded-lg px-2 mt-8">
+         className="text-xl border-2 border-black rounded-lg px-2 mt-8 bg-black text-white">
           Registry account</button>
        </form>
   

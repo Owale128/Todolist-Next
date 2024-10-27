@@ -49,13 +49,13 @@ export default function Home() {
 
      <form 
      onSubmit={handleLogin}
-     className="border-4 border-black p-10 rounded-xl flex flex-col text-xl"
+     className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-white"
      >
 
       <label htmlFor="username" className="mb-1">Username</label>
       <input type="text"
       name="username"
-      className="border-2 border-black block mb-2"
+      className="border-2 border-black bg-gray-100 block mb-2"
       onChange={(e) => setUsername(e.target.value)}
       required
       />
@@ -63,20 +63,20 @@ export default function Home() {
       <label htmlFor="password" className="mb-1">Password</label>
       <input type="password"
       name="password"
-      className="border-2 border-black block"
+      className="border-2 border-black bg-gray-100 block"
       onChange={(e) => setPassword(e.target.value)}
       required
       />
 
       <button type="submit"
-       className="text-xl border-2 border-black rounded-lg px-2 mt-9 block">
+       className="text-xl border-2 border-black rounded-lg px-2 mt-9 block bg-black text-white">
         {loading ? 'Logging in' : 'Login'}
         </button>
 
        <button
        type="button"
        onClick={goToRegister}
-       className="text-xl border-2 border-black rounded-lg px-2 mt-4">
+       className="text-xl border-2 border-black rounded-lg px-2 mt-4 bg-black text-white">
         Registry account
         </button>
 

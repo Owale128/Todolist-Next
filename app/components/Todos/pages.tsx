@@ -55,7 +55,7 @@ const Todos = () => {
 
   return (
     <div className='flex flex-col justify-center items-center'>
-      <button onClick={sort} className='text-xl font-medium mb-6 underline border border-black w-20 bg-white rounded-lg'>Sort</button>
+      <button onClick={sort} className='text-xl text-white font-medium mb-6 border border-black w-20 bg-black rounded-lg'>Sort</button>
        <table className="table-auto w-full border-collapse border border-black mb-20">
         <thead>
           <tr className="bg-gray-200">

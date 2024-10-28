@@ -14,7 +14,7 @@ const Header = () => {
     <div>
       <button 
       onClick={logOut}
-      className="border-2 border-black px-2 ml-4 mt-5 rounded-lg bg-white"
+      className="border-2 border-black px-2 ml-4 mt-5 rounded-lg bg-black text-white"
       >
         Logout
       </button>

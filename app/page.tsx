@@ -28,7 +28,7 @@ export default function Home() {
         }, 2000);
 
       } catch (error) {
-        alert('Login failed')
+        alert('User does not exist, please register!')
         console.error(error)
         setLoading(false)
       }

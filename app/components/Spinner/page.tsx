@@ -1,8 +1,12 @@
+import Image from 'next/image'
+import Sharingan from './spinnerImg/Sharingan.png'
 
 const Spinner = () => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+    <div className="flex items-center justify-center mb-48">
+      <div className="w-28 h-28 rounded-full animate-spin">
+      <Image src={Sharingan} alt='SharinganImage'></Image>
+      </div>
     </div>
   )
 }

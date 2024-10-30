@@ -1,3 +1,4 @@
+'use client'
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType } from '@/app/reducer/TodoReducer'
 import axios from 'axios'

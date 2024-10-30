@@ -1,3 +1,4 @@
+'use client'
 import { useRouter } from "next/navigation"
 import Button from "../Button/page"
 import { ITheme } from "@/app/context/ThemeContext"

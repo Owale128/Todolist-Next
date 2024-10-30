@@ -7,10 +7,20 @@ import Todos from '../Todos/pages'
 import axios from 'axios'
 import Header from '../Header/page'
 import ProtectedRoute from '../ProtectedRoute/page'
+import { ITheme, ThemeContext, themes } from '@/app/context/ThemeContext'
 
 const TodoApp = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState<ITheme>(themes.dark)
+
+  const toggleTheme = () => {
+   if(theme.name === 'Night') {
+     setTheme(themes.light)
+   } else {
+     setTheme(themes.dark)
+   }
+  }
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -43,8 +53,9 @@ const TodoApp = () => {
   }
 
   return (
-    <ProtectedRoute>
-    <Header />
+    <ThemeContext.Provider value={theme}>
+        <ProtectedRoute>
+        <Header toggleTheme={toggleTheme} theme={theme} />
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-3 font-[family-name:var(--font-geist-sans)] animate-popUp">
       <TodosAllContext.Provider value={{ todos, dispatch}}>
         <h1 className="text-6xl max-md:text-5xl">TodoList</h1>
@@ -53,6 +64,7 @@ const TodoApp = () => {
       </TodosAllContext.Provider>
     </div>
   </ProtectedRoute>
+      </ThemeContext.Provider>
   );
 };
 

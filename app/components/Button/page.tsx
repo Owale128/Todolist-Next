@@ -2,12 +2,12 @@ import { ThemeContext } from "@/app/context/ThemeContext";
 import { useContext } from "react";
 
 export interface IButton {
-    childern: JSX.Element;
-    click: () => void;
+    children: JSX.Element;
+    click?: () => void;
+    className?: string;
 }
 
-
-export const Button = ({ childern, click}: IButton) => {
+export const Button = ({ children, click, className}: IButton) => {
     const theme = useContext(ThemeContext);
 
   return (
@@ -17,9 +17,10 @@ export const Button = ({ childern, click}: IButton) => {
             backgroundColor: theme.backgroundColor,
             color: theme.foregroundColor
         }}
+        className={className}
         onClick={click}
       >
-        {childern}
+        {children}
       </button>
     </div>
   )

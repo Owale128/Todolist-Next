@@ -3,6 +3,7 @@ import { ActionType } from '@/app/reducer/TodoReducer'
 import axios from 'axios'
 import { FormEvent, useContext, useState } from 'react'
 import jwt from  'jsonwebtoken'
+import Button from '../Button/page'
 
 const AddTodo = () => {
     const{ dispatch } = useContext(TodosAllContext)
@@ -39,7 +40,7 @@ const AddTodo = () => {
         }
     }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='flex flex-col items-center'>
         <input
         className='border-2 border-black text-2xl text-center bg-gray-50' 
         type="text"
@@ -47,7 +48,7 @@ const AddTodo = () => {
         onChange={(e) => setUserInput(e.target.value)}
         maxLength={20}
         />
-        <button className='text-2xl ml-3 border-2 border-black rounded-lg p-0.5 bg-black text-white max-md:ml-24 mt-2'>Save Todo</button>
+        <Button className='text-xl mt-2 border-2 border-black rounded-lg px-0.5 bg-black text-white max-md:ml-24'><>Add Todos</></Button>
     </form>
   )
 }

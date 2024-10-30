@@ -3,6 +3,7 @@ import { ActionType } from '@/app/reducer/TodoReducer'
 import React, { useContext, useState } from 'react'
 import DisplayTodo from '../DisplayTodo/pages'
 import axios from 'axios'
+import Button from '../Button/page'
 
 const Todos = () => {
 
@@ -55,7 +56,7 @@ const Todos = () => {
 
   return (
     <div className='flex flex-col justify-center items-center'>
-      <button onClick={sort} className='text-xl text-white font-medium mb-6 border border-black w-20 bg-black rounded-lg'>Sort</button>
+      <Button click={sort} className='text-xl text-white font-medium mb-6 border-2 border-black w-14 bg-black rounded-lg'><>Sort</></Button>
        <table className="table-auto w-full border-collapse border border-black mb-20">
         <thead>
           <tr className="bg-gray-200">

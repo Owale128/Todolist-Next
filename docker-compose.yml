@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /app
-    command: npx ts-node ./moleculer.config.ts
+    command: ts-node /app/moleculer.config.ts
     environment:
       - NODE_ENV=development
       - MONGO_URI=${MONGO_URI}

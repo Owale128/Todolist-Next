@@ -1,15 +1,16 @@
 'use client'
 import { useRouter } from "next/navigation"
 import Button from "../Button/page"
-import { ITheme } from "@/app/context/ThemeContext"
+import { ITheme, ThemeContext } from "@/app/context/ThemeContext"
+import { useContext } from "react"
 
 interface IHeader {
   toggleTheme: () => void
-  theme: ITheme;
 }
 
-const Header = ({toggleTheme, theme}: IHeader) => {
+const Header = ({toggleTheme}: IHeader) => {
  const router = useRouter()
+ const theme: ITheme = useContext(ThemeContext)
 
  const logOut = () => {
   if(confirm('Are you sure?')){

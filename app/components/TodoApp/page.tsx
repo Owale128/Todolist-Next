@@ -55,7 +55,7 @@ const TodoApp = () => {
   return (
     <ThemeContext.Provider value={theme}>
         <ProtectedRoute>
-        <Header toggleTheme={toggleTheme} theme={theme} />
+        <Header toggleTheme={toggleTheme}/>
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-3 font-[family-name:var(--font-geist-sans)] animate-popUp">
       <TodosAllContext.Provider value={{ todos, dispatch}}>
         <h1 className="text-6xl max-md:text-5xl">TodoList</h1>

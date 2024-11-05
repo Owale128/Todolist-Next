@@ -25,3 +25,8 @@ body {
     text-wrap: balance;
   }
 }
+
+.glow-effect {
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 238, 255, 0.4);
+  transition: box-shadow 0.3s ease-in-out;
+}

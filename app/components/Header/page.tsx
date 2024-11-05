@@ -23,12 +23,12 @@ const Header = ({toggleTheme}: IHeader) => {
     <div className="flex justify-between">
       <Button 
       click={logOut}
-      className="border-2 border-black px-2 ml-4 mt-5 rounded-lg bg-black text-white">
+      className="border-2 px-2 ml-4 mt-5 rounded-lg">
          <>Logout</>
       </Button>
       <Button 
       click={toggleTheme}
-      className="border-2 border-black px-2 mr-4 mt-5 rounded-lg bg-black text-white">
+      className="border-2 px-2 mr-4 mt-5 rounded-lg">
         <>Change to: {theme.name === 'Night'? 'Day': 'Night'}</>
       </Button>
     </div>

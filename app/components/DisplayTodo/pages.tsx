@@ -10,7 +10,7 @@ interface IDisplayTodo {
 
 const DisplayTodo = ({ todo, toggleTodo, removeTodo }: IDisplayTodo) => {
   return (
-    <tr className="text-center text-xl bg-white border border-black">
+    <tr className="text-center text-xl bg-black text-white border border-black">
       
       <td className={`${todo.done ? 'line-through' : ''} text-2xl py-2 lg:p-4`}>
         {todo.text}
@@ -19,7 +19,7 @@ const DisplayTodo = ({ todo, toggleTodo, removeTodo }: IDisplayTodo) => {
       <td className="p-4">
         <div
           onClick={() => toggleTodo(todo._id)}
-          className="relative w-24 h-9 flex items-center justify-center border-2 border-black rounded-full cursor-pointer overflow-hidden transition-all duration-500 ease-in-out">
+          className="relative w-24 h-9 flex items-center justify-center border-2 border-white rounded-full cursor-pointer overflow-hidden transition-all duration-500 ease-in-out">
           <span className="absolute left-2 text-red-500 text-xl">✕</span>
           <span className="absolute right-2 text-green-500 text-xl">✓</span>
           <div
@@ -31,7 +31,7 @@ const DisplayTodo = ({ todo, toggleTodo, removeTodo }: IDisplayTodo) => {
 
       <td className="p-4">
         <Button
-          className="border-2 border-black rounded-md px-3 py-0.4"
+          className="border-2 rounded-md px-3 py-0.4"
           click={() => removeTodo(todo._id)}>
           <>Remove</>
         </Button>

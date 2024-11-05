@@ -15,7 +15,8 @@ export const Button = ({ children, click, className}: IButton) => {
       <button
         style={{
             backgroundColor: theme.backgroundColor,
-            color: theme.foregroundColor
+            color: theme.foregroundColor,
+            borderColor: theme.borderColor, 
         }}
         className={className}
         onClick={click}

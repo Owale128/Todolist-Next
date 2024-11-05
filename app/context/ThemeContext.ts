@@ -6,6 +6,7 @@ export interface ITheme {
     name: string;
     backgroundColor: string;
     foregroundColor: string;
+    borderColor: string;
 }
 
 export interface IThemes {
@@ -17,12 +18,14 @@ export const themes: IThemes =  {
     dark: {
         name: 'Night',
         backgroundColor: 'black',
-        foregroundColor: 'white'
+        foregroundColor: 'white',
+        borderColor: 'white'
     }, 
     light: {
         name: 'Day',
         backgroundColor: 'white',
-        foregroundColor: 'black'
+        foregroundColor: 'black',
+         borderColor: 'black'
     }
 }
 

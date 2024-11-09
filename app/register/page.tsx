@@ -50,7 +50,8 @@ const Register= () => {
        <h1 className="text-6xl">Register Page</h1>
   
        <form 
-       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl -mt-20  bg-white"
+       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-gradient-to-br from-gray-100 to-gray-400"
+
        onSubmit={handleRegister}
        >
 
@@ -59,7 +60,7 @@ const Register= () => {
         name="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="border-2 border-black bg-gray-200 block mb-2"
+        className="border-2 border-black block mb-2"
         required
         />
 
@@ -68,7 +69,7 @@ const Register= () => {
         name="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="border-2 border-black bg-gray-200 block mb-2"
+        className="border-2 border-black block mb-2"
         minLength={10}
         required
         />
@@ -78,7 +79,7 @@ const Register= () => {
         name="confirmPassword"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
-        className="border-2 border-black bg-gray-200 block"
+        className="border-2 border-black block"
         required
         />
 

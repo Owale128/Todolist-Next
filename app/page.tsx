@@ -40,7 +40,7 @@ export default function Home() {
 
   const goToRegister = (e: FormEvent) => {
     e.preventDefault()
-    router.push('/register')
+    router.push('/components/register')
   }
 
   return (

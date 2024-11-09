@@ -15,17 +15,22 @@ const TodoApp = () => {
   const [theme, setTheme] = useState<ITheme>(themes.dark)
 
   const toggleTheme = () => {
-   if(theme.name === 'Night') {
-     setTheme(themes.light)
-   } else {
-     setTheme(themes.dark)
-   }
+   const newTheme = theme.name === 'Night'? themes.light : themes.dark;
+   setTheme(newTheme)
+   localStorage.setItem('theme', JSON.stringify(newTheme))
   }
+
+useEffect(() => {
+  const storedTheme = localStorage.getItem('theme')
+    if(storedTheme){
+      setTheme(JSON.parse(storedTheme))
+    }
+}, [])
 
   useEffect(() => {
     const fetchTodos = async () => {
       const token = localStorage.getItem('token');
-      
+
       try {
         const response = await axios.get('/api/listTodos', {
           headers: {Authorization: `Bearer ${token}`}

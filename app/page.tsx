@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import Spinner from "./components/Spinner/page";
+import Spinner from "./components/Spinner";
 
 export default function Home() {
   const[username, setUsername] = useState('')
@@ -23,7 +23,7 @@ export default function Home() {
         localStorage.setItem('token', token)
 
         setTimeout(() => {
-          router.push('/components/TodoApp')
+          router.push('/TodoApp')
           setLoading(false)
         }, 2000);
 
@@ -40,7 +40,7 @@ export default function Home() {
 
   const goToRegister = (e: FormEvent) => {
     e.preventDefault()
-    router.push('/components/register')
+    router.push('/register')
   }
 
   return (

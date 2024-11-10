@@ -2,7 +2,7 @@
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
-import Button from "../Button/page"
+import Button from "../components/Button"
 
 const Register= () => {
     const [username, setUsername] = useState('')

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Sharingan from './spinnerImg/Sharingan.png'
+import Sharingan from '../image/Sharingan.png'
 
 const Spinner = () => {
   return (

@@ -1,6 +1,6 @@
 import { Todo } from '@/app/model/Todo'
 import React from 'react'
-import Button from '../Button/page';
+import Button from './Button';
 
 interface IDisplayTodo {
   todo: Todo;

@@ -1,9 +1,9 @@
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType } from '@/app/reducer/TodoReducer'
 import React, { useContext, useState } from 'react'
-import DisplayTodo from '../DisplayTodo/pages'
+import DisplayTodo from './DisplayTodo'
 import axios from 'axios'
-import Button from '../Button/page'
+import Button from './Button'
 
 const Todos = () => {
 

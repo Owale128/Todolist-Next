@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation"
-import Button from "../Button/page"
+import Button from "./Button"
 import { ITheme, ThemeContext } from "@/app/context/ThemeContext"
 import { useContext } from "react"
 

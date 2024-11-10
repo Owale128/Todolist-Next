@@ -4,7 +4,7 @@ import { ActionType } from '@/app/reducer/TodoReducer'
 import axios from 'axios'
 import { FormEvent, useContext, useState } from 'react'
 import jwt from  'jsonwebtoken'
-import Button from '../Button/page'
+import Button from './Button'
 
 const AddTodo = () => {
     const{ dispatch } = useContext(TodosAllContext)

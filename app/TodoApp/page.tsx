@@ -2,10 +2,10 @@
 import { TodosAllContext } from '@/app/context/TodosAllContext'
 import { ActionType, TodoReducer } from '@/app/reducer/TodoReducer'
 import React, { useEffect, useReducer, useState } from 'react'
-import AddTodo from '../AddTodo/page'
-import Todos from '../Todos/pages'
+import AddTodo from '../components/AddTodo'
+import Todos from '../components/Todos'
 import axios from 'axios'
-import Header from '../Header/page'
+import Header from '../components/Header'
 import ProtectedRoute from '../ProtectedRoute/page'
 import { ITheme, ThemeContext, themes } from '@/app/context/ThemeContext'
 

@@ -47,9 +47,10 @@ const AddTodo = () => {
         type="text"
         value={(userInput)}
         onChange={(e) => setUserInput(e.target.value)}
-        maxLength={20}
-        />
+        maxLength={20}/>
+
         <Button className='text-xl mt-4 border-2 rounded-lg px-0.5'><>Add Todos</></Button>
+
     </form>
   )
 }

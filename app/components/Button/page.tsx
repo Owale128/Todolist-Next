@@ -19,9 +19,10 @@ export const Button = ({ children, click, className}: IButton) => {
             borderColor: theme.borderColor, 
         }}
         className={className}
-        onClick={click}
-      >
+        onClick={click}>
+
         {children}
+        
       </button>
     </div>
   )

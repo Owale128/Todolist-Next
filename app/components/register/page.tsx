@@ -42,8 +42,7 @@ const Register= () => {
         <>
         <Button
         click={() => router.push('/')}
-        className="border-2 border-black px-1 ml-6 mt-4 rounded-lg bg-black text-white"
-        >
+        className="border-2 border-black px-1 ml-6 mt-4 rounded-lg bg-black text-white">
        <>Back</>
         </Button>
 
@@ -53,8 +52,7 @@ const Register= () => {
        <form 
        className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-gradient-to-br from-gray-100 to-gray-400 registerPage-glow-effect"
 
-       onSubmit={handleRegister}
-       >
+       onSubmit={handleRegister}>
 
         <label htmlFor="username" className="mb-1">Enter Username</label>
         <input type="text"
@@ -62,8 +60,7 @@ const Register= () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         className="border-2 border-black block mb-2"
-        required
-        />
+        required/>
 
         <label htmlFor="password" className="mb-1">Enter Password</label>
         <input type="password"
@@ -72,8 +69,7 @@ const Register= () => {
         onChange={(e) => setPassword(e.target.value)}
         className="border-2 border-black block mb-2"
         minLength={10}
-        required
-        />
+        required/>
 
         <label htmlFor="password" className="mb-1">Enter Password Again</label>
         <input type="password"
@@ -81,8 +77,7 @@ const Register= () => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         className="border-2 border-black block"
-        required
-        />
+        required/>
 
          <button
          type="submit"

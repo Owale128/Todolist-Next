@@ -2,6 +2,7 @@
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
+import Button from "../Button/page"
 
 const Register= () => {
     const [username, setUsername] = useState('')
@@ -39,18 +40,18 @@ const Register= () => {
   
     return (
         <>
-        <button
-        onClick={() => router.push('/')}
+        <Button
+        click={() => router.push('/')}
         className="border-2 border-black px-1 ml-6 mt-4 rounded-lg bg-black text-white"
         >
        <>Back</>
-        </button>
+        </Button>
 
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)] animate-popUp">
-       <h1 className="text-6xl">Register Page</h1>
+       <h1 className="text-6xl text-white">Register Page</h1>
   
        <form 
-       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-gradient-to-br from-gray-100 to-gray-400"
+       className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-gradient-to-br from-gray-100 to-gray-400 registerPage-glow-effect"
 
        onSubmit={handleRegister}
        >

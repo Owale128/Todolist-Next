@@ -43,13 +43,13 @@ const AddTodo = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col items-center'>
         <input
-        className='border-2 border-black text-2xl text-center bg-gray-50 rounded-md' 
+        className='text-2xl text-center bg-gray-50 rounded-md' 
         type="text"
         value={(userInput)}
         onChange={(e) => setUserInput(e.target.value)}
         maxLength={20}
         />
-        <Button className='text-xl mt-2 border-2 rounded-lg px-0.5'><>Add Todos</></Button>
+        <Button className='text-xl mt-4 border-2 rounded-lg px-0.5'><>Add Todos</></Button>
     </form>
   )
 }

@@ -9,4 +9,4 @@ RUN npm install -g ts-node
 
 COPY . .
 
-EXPOSE 3000
+CMD ["npx", "ts-node", "/app/moleculer.config.ts"]

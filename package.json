@@ -7,6 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "start-moleculer": "ts-node moleculer.config.ts",
+    "start-services": "npm run start & npm run start-moleculer",
     "lint": "next lint",
     "test": "jest"
   },

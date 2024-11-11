@@ -2,7 +2,7 @@ services:
   next-app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.next
     ports:
       - "3000:3000"
     environment:
@@ -13,7 +13,7 @@ services:
   moleculer-services:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.moleculer
     environment:
       - NODE_ENV=production
       - MONGO_URI=${MONGO_URI}

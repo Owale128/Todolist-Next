@@ -8,7 +8,7 @@ import loginService from "./services/login.service"
 
 const broker = new ServiceBroker({
   logger: true,
-  transporter: null,
+  transporter: "NATS",
 })
 
 broker.createService(listTodosService)

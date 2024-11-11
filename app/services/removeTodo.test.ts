@@ -11,7 +11,7 @@ describe('A service to remove todo', () => {
     const broker = new ServiceBroker();
     broker.createService(RemoveTodoService);
 
-    let todosCollection = {
+    const todosCollection = {
         deleteOne: jest.fn()
     };
 

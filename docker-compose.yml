@@ -6,20 +6,15 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - MONGO_URI=${MONGO_URI}
-    volumes:
-      - .:/app
-    command: npm run dev
+    command: npm run start
 
   moleculer-services:
     build:
       context: .
       dockerfile: Dockerfile
-    working_dir: /app
-    command: npx ts-node /app/moleculer.config.ts
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - MONGO_URI=${MONGO_URI}
-    volumes:
-      - .:/app
+    command: npx ts-node /app/moleculer.config.ts

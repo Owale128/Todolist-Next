@@ -6,7 +6,7 @@ import AddTodo from '../components/AddTodo'
 import Todos from '../components/Todos'
 import axios from 'axios'
 import Header from '../components/Header'
-import ProtectedRoute from '../ProtectedRoute/page'
+import ProtectedRoute from '../components/ProtectedRoute'
 import { ITheme, ThemeContext, themes } from '@/app/context/ThemeContext'
 
 const TodoApp = () => {

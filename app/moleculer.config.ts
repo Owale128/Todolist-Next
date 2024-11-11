@@ -6,7 +6,10 @@ import listTodosService from "./services/listAllTodos.service"
 import registerService from "./services/register.service"
 import loginService from "./services/login.service"
 
-const broker = new ServiceBroker({logger: true})
+const broker = new ServiceBroker({
+  logger: true,
+  transporter: null,
+})
 
 broker.createService(listTodosService)
 broker.createService(addTodoService)

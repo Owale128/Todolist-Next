@@ -3,3 +3,7 @@ npm-debug.log
 .env
 .DS_Store
 *.log
+*.test.ts
+.dockerignore
+.git
+.gitignore

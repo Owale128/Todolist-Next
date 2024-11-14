@@ -47,7 +47,7 @@ const Register= () => {
         </Button>
 
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)] animate-popUp">
-       <h1 className="text-6xl text-white">Register Page</h1>
+       <h1 className="text-5xl text-white">Register Account</h1>
   
        <form 
        className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-gradient-to-br from-gray-100 to-gray-400 registerPage-glow-effect"

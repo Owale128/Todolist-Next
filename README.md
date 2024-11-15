@@ -1,36 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todolist (NextJs) 😁
 
-## Getting Started
+I've developed Todolist-Next, a modern and responsive to-do list built with Next.js and Tailwind CSS, connected to a MongoDB database. The application allows users to create accounts and log in, with each user having their own personal to-do lists. Users can easily create, edit and delete records, and all changes are securely stored in the database. I have focused on a smooth user experience and a scalable backend to handle multiple users at the same time.
 
-First, run the development server:
+Link: https://todolist-next-production.up.railway.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Todolist](https://github.com/user-attachments/assets/02ac2876-b395-4592-a3d4-a8afbea1a637)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Stack:
+[![My Skills](https://skillicons.dev/icons?i=nextjs,ts,tailwind,docker,mongodb)](https://skillicons.dev)

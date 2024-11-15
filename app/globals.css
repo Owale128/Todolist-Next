@@ -35,3 +35,33 @@ body {
   box-shadow: 0 0 0.4rem 0.4rem rgba(255, 255, 255, 0.392);
   transition: box-shadow 0.3s ease-in-out;
 }
+
+.registryH1, .loginH1 {
+  font-size: 3rem;
+}
+
+@media (max-width: 390px) {
+
+  .todolistH1 {
+    margin-top: 2rem;
+  }
+  
+  .loginH1, .registryH1 {
+    margin-top: 8rem;
+    font-size: 2.5rem;
+  }
+
+  .table {
+    width: 92vw;
+  }
+
+  .todoText {
+    padding-left: 0.5rem ;
+    font-size: 1.3rem;
+  }
+
+  .removeBtn {
+    padding: 0.5rem;
+  }
+
+}

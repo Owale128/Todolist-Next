@@ -46,8 +46,8 @@ const Register= () => {
        <>Back</>
         </Button>
 
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-10 font-[family-name:var(--font-geist-sans)] animate-popUp">
-       <h1 className="text-5xl text-white">Register Account</h1>
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-40 font-[family-name:var(--font-geist-sans)] animate-popUp">
+       <h1 className=" text-white registryH1">Register Account</h1>
   
        <form 
        className="border-4 border-black p-10 rounded-xl flex flex-col text-xl bg-gradient-to-br from-gray-100 to-gray-400 registerPage-glow-effect"
@@ -68,7 +68,7 @@ const Register= () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="border-2 border-black block mb-2"
-        minLength={10}
+
         required/>
 
         <label htmlFor="password" className="mb-1">Enter Password Again</label>
@@ -81,7 +81,7 @@ const Register= () => {
 
          <button
          type="submit"
-         className="text-xl border-2 border-black rounded-lg px-2 mt-8 bg-black text-white">
+         className="text-xl border-2 border-black rounded-lg px-2 mt-8 bg-black text-white transition-all duration-100 ease-in hover:bg-green-700 registryBtn">
           Registry account</button>
        </form>
   

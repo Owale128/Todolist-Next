@@ -63,7 +63,7 @@ useEffect(() => {
         <Header toggleTheme={toggleTheme}/>
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-3 font-[family-name:var(--font-geist-sans)] animate-popUp">
       <TodosAllContext.Provider value={{ todos, dispatch}}>
-        <h1 className="text-6xl max-md:text-5xl text-white">TodoList</h1>
+        <h1 className="todolistH1 text-5xl text-white">TodoList</h1>
         <AddTodo />
         <Todos />
       </TodosAllContext.Provider>

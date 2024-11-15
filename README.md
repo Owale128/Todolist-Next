@@ -4,7 +4,7 @@ I've developed Todolist-Next, a modern and responsive to-do list built with Next
 
 Link: https://todolist-next-production.up.railway.app/
 
-![Todolist](https://github.com/user-attachments/assets/02ac2876-b395-4592-a3d4-a8afbea1a637)
+<img width="1453" alt="Todolist" src="https://github.com/user-attachments/assets/20e35a18-6106-467c-ba96-02765f026015">
 
 # Stack:
 [![My Skills](https://skillicons.dev/icons?i=nextjs,ts,tailwind,docker,mongodb)](https://skillicons.dev)

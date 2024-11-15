@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-40 font-[family-name:var(--font-geist-sans)] animate-popUp">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-40 font-[family-name:var(--font-geist-sans)] animate-popUp loginForm">
      <h1 className=" text-white loginH1">Login</h1>
 
      <form 
@@ -66,14 +66,14 @@ export default function Home() {
       required/>
 
       <button type="submit"
-       className="text-xl border-2 border-black rounded-lg px-2 mt-9 block bg-black text-white transition-all duration-100 ease-in hover:bg-green-700">
+       className="text-xl border-2 border-black rounded-lg px-2 mt-9 block bg-black text-white loginBtn">
         {loading ? 'Logging in' : 'Login'}
         </button>
 
        <button
        type="button"
        onClick={goToRegister}
-       className="text-xl border-2 border-black rounded-lg px-2 mt-4 bg-black text-white transition-all duration-100 ease-in hover:bg-green-700">
+       className="text-xl border-2 border-black rounded-lg px-2 mt-4 bg-black text-white registryBtn">
         Registry account
         </button>
 

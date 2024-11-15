@@ -40,6 +40,10 @@ body {
   font-size: 3rem;
 }
 
+.loginBtn:hover, .registryBtn:hover {
+  background-color: green;
+}
+
 @media (max-width: 390px) {
 
   .todolistH1 {
@@ -47,7 +51,7 @@ body {
   }
   
   .loginH1, .registryH1 {
-    margin-top: 8rem;
+    margin-top: 6rem;
     font-size: 2.5rem;
   }
 
@@ -60,8 +64,22 @@ body {
     font-size: 1.3rem;
   }
 
+  .loginBtn:hover, .registryBtn:hover {
+    background-color: black;
+  }
+
+  .loginBtn:active, .registryBtn:active {
+    background-color: green;
+  }
   .removeBtn {
     padding: 0.5rem;
+  }
+
+  .loginForm, .registryForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   overflow-y: hidden;
   }
 
 }

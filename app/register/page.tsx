@@ -46,7 +46,7 @@ const Register= () => {
        <>Back</>
         </Button>
 
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-40 font-[family-name:var(--font-geist-sans)] animate-popUp">
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-40 font-[family-name:var(--font-geist-sans)] animate-popUp registryForm">
        <h1 className=" text-white registryH1">Register Account</h1>
   
        <form 
@@ -81,7 +81,7 @@ const Register= () => {
 
          <button
          type="submit"
-         className="text-xl border-2 border-black rounded-lg px-2 mt-8 bg-black text-white transition-all duration-100 ease-in hover:bg-green-700 registryBtn">
+         className="text-xl border-2 border-black rounded-lg px-2 mt-8 bg-black text-white registryBtn">
           Registry account</button>
        </form>
   

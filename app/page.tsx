@@ -74,7 +74,7 @@ export default function Home() {
        type="button"
        onClick={goToRegister}
        className="text-xl border-2 border-black rounded-lg px-2 mt-4 bg-black text-white registryBtn">
-        Registry account
+        Register account
         </button>
 
      </form>

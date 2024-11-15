@@ -82,7 +82,7 @@ const Register= () => {
          <button
          type="submit"
          className="text-xl border-2 border-black rounded-lg px-2 mt-8 bg-black text-white registryBtn">
-          Registry account</button>
+          Register</button>
        </form>
   
       </div>

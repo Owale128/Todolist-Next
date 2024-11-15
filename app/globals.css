@@ -44,7 +44,11 @@ body {
   background-color: green;
 }
 
-@media (max-width: 390px) {
+@media (min-width: 390px) and (max-width: 767px)  {
+
+  .table {
+    width: 92vw;
+  }
 
   .todolistH1 {
     margin-top: 2rem;
@@ -53,10 +57,6 @@ body {
   .loginH1, .registryH1 {
     margin-top: 4rem;
     font-size: 2.5rem;
-  }
-
-  .table {
-    width: 92vw;
   }
 
   .todoText {
@@ -83,3 +83,12 @@ body {
   }
 
 }
+
+
+@media (min-width: 768px) and (max-width: 844px) {
+
+.table {
+  width: auto;
+}
+
+ }

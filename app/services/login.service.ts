@@ -20,7 +20,7 @@ const loginService: ServiceSchema = {
         const isPasswordValid = await bcrypt.compare(password, user.password)
         if(!isPasswordValid) throw new Error('Invalid password')
 
-        const token = jwt.sign({ userId: user._id, username: user.username }, secret, { expiresIn: '1h'})
+        const token = jwt.sign({ userId: user._id, username: user.username }, secret, { expiresIn: '7d'})
         return { token, message: 'Login successful'}
     }
    } 

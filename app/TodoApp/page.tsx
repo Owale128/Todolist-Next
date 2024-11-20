@@ -54,7 +54,7 @@ useEffect(() => {
   }, []);
 
   if (loading) {
-    return <div className='text-center my-36 text-3xl'>Loading todos...</div>
+    return <div className='text-center my-36 text-3xl text-white'>Loading todos...</div>
   }
 
   return (
